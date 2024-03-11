@@ -48,7 +48,7 @@ The file structure of the project is as follows：
 # How to run
 - cd code
     - step 0, `python dislocate.py` Go and scramble the original image. The result is given in folder 'data/dis_result'
-    - step 1, `python main.py`      to train and test Protein-molecule affinity. The result is given in folders 'code/transformer_50.pth' and 'code/log.log'
+    - step 1, `python main.py train`      to train and test Protein-molecule affinity. The result is given in folders 'code/transformer_50.pth' and 'code/log.log'
 
 
 
