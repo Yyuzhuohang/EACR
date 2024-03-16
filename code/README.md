@@ -3,7 +3,7 @@ While the inherent correlation patterns between manual annotations and sample fe
 ![摘要](Introduction.png)
 Figure 1 illustrates the evolution of deep learning technologies, focusing on the diminishing reliance on prior knowledge. Key points include: a) The shift from supervised to unsupervised learning marks a significant move away from the need for manually annotated data, indicating a broader trend towards minimizing prior knowledge requirements. b) Understanding feature correlation patterns in data is crucial, as these patterns significantly inform the learning process (see b-1). However, in complex cases like protein-ligand interactions, identifying these patterns can be challenging (see b-2). This complexity underscores the importance of developing models that can learn effectively without predefined knowledge of feature correlations. c) Efforts to reduce dependence on known feature correlation patterns are parallel to the push for less reliance on manual data annotation. Both aims are foundational to ongoing research efforts. Our study introduces the "minimal prior learning" approach to lower the barriers to entry for deep learning application, aiming to expand its use across various fields by lessening the need for both manual annotation and established feature correlations. 
 
-## Method
+# Method
 The essence of predicting protein and ligand binding lies in identifying and validating highly specific complementary binding patterns from a multitude of potential patterns. Due to the lack of prior knowledge about amino acid and molecular binding trends, it remains challenging to effectively avoid sampling of ineffective binding patterns regardless of the modeling strategy chosen. Therefore, our modeling work is aimed at 1) expanding the range of sampling binding modes and 2) improving sampling efficiency, as shown in Figure 2-A. Our core approach consists of three parts, as shown in Figure 2-b:
 1) The sampling range of potential binding patterns is expanded. Our method is further refined by the introduction of weight scores by leveraging pre-existing embedding and bilinear attention mechanisms, as shown in Figures 2-b-1 and 2-b-2. To ensure consistent sequence length, we used fill and truncation techniques to normalize molecular sequences to 85 characters and protein sequences to 1200 characters. By embedding, these numerical ids are converted into high-dimensional, trainable vectors. Using bilinear attention, we construct an 85*1200 correlation matrix that reveals the binding pattern between amino acids and atoms, as shown in Figures 2-a-2 and 2-b-1.
 2) Improve sampling efficiency. To effectively identify binding patterns in protein and molecular sequence correlation matrices, we use a CNN-based module supplemented by a simplified swin transformer architecture, as shown in Figure 2-b-1.
@@ -50,6 +50,6 @@ The file structure of the project is as follows：
     - step 0, `python dislocate.py` Go and scramble the original image. The result is given in folder 'data/dis_result'
     - step 1, `python main.py train`      to train and test Protein-molecule affinity. The result is given in folders 'code/transformer_50.pth' and 'code/log.log'
 
-
-
+# Other
+In model.py, position embedding can be added, but our experiment found that the effect did not improve much. Although it was written in the code, the results in the article did not include this part. Researchers can try using or not using it themselves.
 
